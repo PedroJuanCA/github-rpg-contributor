@@ -21,11 +21,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Read CNAME
-        id: cname
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./CNAME
       - name: set env variable CNAME
         run: echo 'CNAME=${{ steps.cname.outputs.content }}' >> $GITHUB_ENV
         
