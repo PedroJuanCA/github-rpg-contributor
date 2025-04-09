@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="module" src="./github-rpg-contributors.js"></script>
+    <title>GitHub RPG Contributors</title>
+    <style>
+      body {
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 2rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      h2 {
+        color: #222;
+        margin-bottom: 1rem;
+      }
+
+      label {
+        font-weight: 600;
+        margin-right: 1rem;
+      }
+
+      input {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        background: #0366d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background: #024f9f;
+      }
+
+      hr {
+        margin: 3rem 0;
+        border: none;
+        border-top: 2px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Live Input Demo</h2>
+    <label>
+      Org:
+      <input id="org" value="haxtheweb" />
+    </label>
+    <label>
+      Repo:
+      <input id="repo" value="webcomponents" />
+    </label>
+    <button onclick="updateRepo()">Update</button>
+
+    <github-rpg-contributors
+      id="dynamic"
+      organization="haxtheweb"
+      repo="webcomponents"
+      limit="10"
+    ></github-rpg-contributors>
+
+    <hr />
+
+    <h2>Static Demo</h2>
+    <github-rpg-contributors
+      organization="haxtheweb"
+      repo="haxcms"
+      limit="6"
+    ></github-rpg-contributors>
+
+    <script>
+      function updateRepo() {
+        const el = document.getElementById('dynamic');
+        el.organization = document.getElementById('org').value;
+        el.repo = document.getElementById('repo').value;
+      }
+    </script>
+  </body>
+</html>
